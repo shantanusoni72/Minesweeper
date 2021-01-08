@@ -1,5 +1,6 @@
 import random
 import pyfiglet
+from termcolor import colored
 def Play():
 	n = int(input("Enter the n: "))
 	playground = generatingGround(n)
@@ -23,7 +24,8 @@ def generatingGround(n):
 def banner():
 	print("------------------------------------------------------------------------------",
 		pyfiglet.figlet_format("Minesweeper"),
-		"				Code by shaan453\n",
+		"				           Code by shaan453\n",
+		"                                          Version: 2021.3.2\n",
 		"------------------------------------------------------------------------------")
 def gameStart(playground, n):
 	for i in range(n):
@@ -31,11 +33,14 @@ def gameStart(playground, n):
 			x = int(input("Enter the coordinate: x= "))
 			y = int(input("Enter the coordinate: y= "))
 			if playground[x][y] == 1:
-				print("Boom! Bomb have been blasts. You lose")
+				status = "Boom! Bomb have been blasts. You lose"
+				print(colored(status,"red"))
 				return False
-			print("No bomb, you are lucky this time")
+			status = "No bomb, you are lucky this time"
+			print(colored(status,"green"))
 			if i == n-1 and j == n-1:
-				print("Congratulations! You won the game")
+				status = "Congratulations! You won the game"
+				print(colored(status,"green"))
 				return True
 
 
